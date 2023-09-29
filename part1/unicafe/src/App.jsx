@@ -20,6 +20,9 @@ const Button = ({ handleClick, text }) => {
 }
 
 const Statistics = ({ good, bad, neutral }) => {
+  if ((good + bad + neutral) <= 0) {
+    return <></>
+  }
   return (
     <>
       <Statistic text='Good' count={good}/>

@@ -25,17 +25,17 @@ const Statistics = ({ good, bad, neutral }) => {
   }
   return (
     <>
-      <Statistic text='Good' count={good}/>
-      <Statistic text='Neutral' count={neutral}/>
-      <Statistic text='Bad' count={bad}/>
-      <Statistic text='Total' count={bad + good + neutral}/>
-      <Statistic text='Average' count={(good - bad)/(bad + good + neutral)}/>
-      <Statistic text='Positive' count={`${(good/(bad + good + neutral)) * 100} %`}/>
+      <StatisticLine text='Good' count={good}/>
+      <StatisticLine text='Neutral' count={neutral}/>
+      <StatisticLine text='Bad' count={bad}/>
+      <StatisticLine text='Total' count={bad + good + neutral}/>
+      <StatisticLine text='Average' count={(good - bad)/(bad + good + neutral)}/>
+      <StatisticLine text='Positive' count={`${(good/(bad + good + neutral)) * 100} %`}/>
     </>
   )
 }
 
-const Statistic = ({ text, count }) => {
+const StatisticLine = ({ text, count }) => {
   return (
     <>
       <p>{text} {count}</p>

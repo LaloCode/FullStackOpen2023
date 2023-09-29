@@ -19,6 +19,19 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
+const Statistics = ({ good, bad, neutral }) => {
+  return (
+    <>
+      <Statistic text='Good' count={good}/>
+      <Statistic text='Neutral' count={neutral}/>
+      <Statistic text='Bad' count={bad}/>
+      <Statistic text='Total' count={bad + good + neutral}/>
+      <Statistic text='Average' count={(good - bad)/(bad + good + neutral)}/>
+      <Statistic text='Positive' count={`${(good/(bad + good + neutral)) * 100} %`}/>
+    </>
+  )
+}
+
 const Statistic = ({ text, count }) => {
   return (
     <>
@@ -40,12 +53,7 @@ const App = () => {
       <Button handleClick={() => setNeutral(neutral + 1)} text='Neutral'/>
       <Button handleClick={() => setBad(bad + 1)} text='Bad'/>
       <Header title='Statistics'/>
-      <Statistic text='Good' count={good}/>
-      <Statistic text='Neutral' count={neutral}/>
-      <Statistic text='Bad' count={bad}/>
-      <Statistic text='Total' count={bad + good + neutral}/>
-      <Statistic text='Average' count={(good - bad)/(bad + good + neutral)}/>
-      <Statistic text='Positive' count={`${(good/(bad + good + neutral)) * 100} %`}/>
+      <Statistics good={good} bad={bad} neutral={neutral}/>
     </div>
   )
 }

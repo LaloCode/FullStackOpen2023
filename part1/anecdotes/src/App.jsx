@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
 
 const Button = ({ handleClick, text }) => {
@@ -23,10 +24,20 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(Array(8).fill(0))
+
+  const handleVote = () => {
+    const votesCopy = [...votes]
+    votesCopy[selected] += 1
+    console.log(votes)
+    setVotes(votesCopy)
+  }
 
   return (
     <div>
       <div>{anecdotes[selected]}</div>
+      <div>Has {votes[selected]} votes</div>
+      <Button text='Vote' handleClick={handleVote}/>
       <Button text='Next anecdote' handleClick={() => setSelected(Math.floor(Math.random() * 8))}/>
     </div>
   )

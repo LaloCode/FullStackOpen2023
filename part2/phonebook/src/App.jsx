@@ -47,7 +47,7 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:3001/persons').then((response) => {
+    axios.get('https://potential-palm-tree-pgxvq7wwjgp37qw7-3000.app.github.dev/persons').then((response) => {
       setPersons(response.data);
     });
   }, []);
